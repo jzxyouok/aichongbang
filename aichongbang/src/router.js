@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-
+import Info from './views/Info'
+import myShop from './components/shop/myShop'
+import shenqin from './components/shop/shenqin'
+import service from './components/service'
+import goods from './components/goods'
 Vue.use(Router)
 
 export default new Router({
@@ -20,18 +24,26 @@ export default new Router({
         next()//next控制是否允许进入该路径，接收参数，布尔值，默认true.
       },
       children: [{//配置子路由的地方
-        path: 'counter',
-        name: 'Counter',
-        component: Counter
-      }, {
-        path: 'todoList',
-        name: 'TodoList',
-        component: TodoList
-      }, {
-        path: 'movies',
-        name: 'Movie',
-        component: Movie
-      }]
+        path: 'myshop',
+        name: 'myshop',
+        component: myShop
+      },
+      {
+        path: 'shenqin',
+        name: 'shenqin',
+        component: shenqin
+      },
+      {
+        path: 'service',
+        name: 'service',
+        component: service
+      },
+      {
+        path: 'goods',
+        name: 'goods',
+        component: goods
+      }
+      ]
     },
     {
       path: '/about',

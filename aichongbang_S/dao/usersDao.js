@@ -1,27 +1,27 @@
-const { usersModel } = require('./models/usersModel.js');
+const { userModel } = require('./models/userModel.js');
 
 //前台登陆
 module.exports.login = async function (info) {
-   let result = await usersModel.find(info);
+   let result = await userModel.find(info);
    return result;
 }
 //后台登陆
 module.exports.blogin = async function (info) {
-   let result = await usersModel.find(info);
+   let result = await userModel.find(info);
    return result;
 }
 //注册
 module.exports.register = async function (info) {
-   let result = await usersModel.create(info);
+   let result = await userModel.create(info);
    return result;
 }
 //获取后台用户
 module.exports.getUsers = async function ({ currentPage, eachPage }) {
-   let result = await usersModel.find();
+   let result = await userModel.find();
 
-   let count = await usersModel.countDocuments();  // 总条数
+   let count = await userModel.countDocuments();  // 总条数
    let totalPage = Math.ceil(count / eachPage); // 总页数
-   let users = await usersModel
+   let users = await userModel
       .find()
       .skip((currentPage - 1) * eachPage)
       .limit(eachPage - 0)
@@ -37,31 +37,31 @@ module.exports.getUsers = async function ({ currentPage, eachPage }) {
 }
 //批量删除后台用户
 module.exports.deletes = async function (id) {
-   return await usersModel.remove({ _id: { $in: id._id } });
+   return await userModel.remove({ _id: { $in: id._id } });
 }
 
 //新增前台用户
 module.exports.addFrontUser = async function (user) {
-   let result = await usersModel.create(user);
+   let result = await userModel.create(user);
    return result;
 }
 
 //修改用户
 module.exports.updates = async function ({ _id, password }) {
-   return await usersModel.updateOne({ _id }, { password });
+   return await userModel.updateOne({ _id }, { password });
 }
 //通过id获取当前登陆的用户
 module.exports.getUserById = async function (id) {
-   let result = await usersModel.find(id);
+   let result = await userModel.find(id);
    return result;
 }
 
 // 判断手机号是否存在
 module.exports.phoneIsExist = async function (info) {
-   return await usersModel.find(info);
+   return await userModel.find(info);
 }
 
 //修改用户信息
 module.exports.userupdates = async function ({ _id, password }) {
-   return await usersModel.updateOne({ _id }, { password });
+   return await userModel.updateOne({ _id }, { password });
 }
