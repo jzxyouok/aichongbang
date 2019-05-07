@@ -1,20 +1,30 @@
 const { userModel } = require('./models/userModel.js');
+//登录
+module.exports.login = async function (data) {
+   let result = await userModel.find(data);
+   return result;
+}
 
-//前台登陆
-module.exports.login = async function (info) {
-   let result = await userModel.find(info);
-   return result;
-}
-//后台登陆
-module.exports.blogin = async function (info) {
-   let result = await userModel.find(info);
-   return result;
-}
 //注册
 module.exports.reg = async function (data) {
    let result = await userModel.create(data);
    return result;
 }
+
+//获取用户
+module.exports.getUser = async function () {
+   let result = await userModel.find()
+   console.log(result);
+   return result.filter(item => item.userStatus == 0)
+}
+
+//修改用户
+module.exports.updateUser = async function (id) {
+   return await userModel.updateOne(id, { userStatus: 1 });
+}
+
+
+//*************************************************** */
 //获取后台用户
 module.exports.getUsers = async function ({ currentPage, eachPage }) {
    let result = await userModel.find();

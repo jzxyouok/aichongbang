@@ -1,7 +1,15 @@
 var express = require('express');
 var router = express.Router();
+let { getShop,uploadShop} = require('../service/shopService.js')
 const { uploadFile } = require("../public/javascripts/upload");
-const {uploadShop}=require('../service/shopService')
+
+
+//获取门店
+router.get('/getShop', async function (req, res, next) {
+	res.send(await getShop())
+})
+
+
 /* GET home page. */
 router.post('/uploadShopImg', async function(req, res, next) {
     // console.log(await req.body)
