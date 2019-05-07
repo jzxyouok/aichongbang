@@ -2,10 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Info from './views/Info'
 import myShop from './components/shop/myShop'
-import shenqin from './components/shop/shenqin'
+// import shenqin from './components/shop/shenqin'
 import service from './components/service'
 import goods from './components/goods'
 import pet from './components/pet'
+import addpet from './components/petShop/addpet.vue'
+import querythePet from './components/petShop/querythePet.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -28,11 +30,7 @@ export default new Router({
         name: 'myshop',
         component: myShop
       },
-      {
-        path: 'shenqin',
-        name: 'shenqin',
-        component: shenqin
-      },
+     
       {
         path: 'service',
         name: 'service',
@@ -48,6 +46,16 @@ export default new Router({
         name: 'pet',
         component: pet
       },
+      {
+        path:"addpet",
+        name:"addpet",
+        component:addpet
+      },
+      {
+        path:"querythePet",
+        name:"querythePet",
+        component:querythePet
+      }
       ]
     },
     // {

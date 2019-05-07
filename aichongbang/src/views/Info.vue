@@ -61,8 +61,8 @@
           </template>
           <el-menu-item-group>
             <span slot="title"></span>
-            <el-menu-item index="/info/shenqin">新增宠物</el-menu-item>
-            <el-menu-item index="/info/show">查看宠物</el-menu-item>
+            <el-menu-item index="/info/addpet">新增宠物</el-menu-item>
+            <el-menu-item index="/info/querythePet">查看宠物</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
 
