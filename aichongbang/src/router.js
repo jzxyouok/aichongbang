@@ -7,15 +7,16 @@ import addService from './components/serve/addService.vue'
 import showService from './components/serve/showService.vue'
 import goods from './components/goods'
 import pet from './components/pet'
+import reg from './views/reg'
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'home',
-    //   component: Home
-    // },
+    {
+      path: '/',
+      name: 'reg',
+      component: reg
+    },
     {
       path: '/info',
       name: 'Info',

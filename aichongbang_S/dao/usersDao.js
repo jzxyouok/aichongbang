@@ -11,8 +11,8 @@ module.exports.blogin = async function (info) {
    return result;
 }
 //注册
-module.exports.register = async function (info) {
-   let result = await userModel.create(info);
+module.exports.reg = async function (data) {
+   let result = await userModel.create(data);
    return result;
 }
 //获取后台用户
