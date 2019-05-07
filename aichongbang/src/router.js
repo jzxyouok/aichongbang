@@ -6,15 +6,16 @@ import shenqin from './components/shop/shenqin'
 import service from './components/service'
 import goods from './components/goods'
 import pet from './components/pet'
+import reg from './views/reg'
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'home',
-    //   component: Home
-    // },
+    {
+      path: '/',
+      name: 'reg',
+      component: reg
+    },
     {
       path: '/info',
       name: 'Info',
