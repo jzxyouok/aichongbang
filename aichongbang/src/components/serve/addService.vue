@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { fetchPost } from "../../server/fetch.js";
+import { fetchPost } from "../../server/fetch";
 export default {
   data() {
     return {
