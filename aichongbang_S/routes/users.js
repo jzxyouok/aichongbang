@@ -1,12 +1,29 @@
 var express = require('express');
 var router = express.Router();
 //表现层，只负责传递东西到逻辑层，和接收逻辑层的结果。
-let { reg, login, blogin, register, getUsers, deletes, addFrontUser, updates, getUserById, phoneIsExist, userupdates } = require('../service/usersService.js')
+let { reg, getUser, updateUser,login } = require('../service/usersService.js')
+
+//登录
+router.post('/login', async function (req, res, next) {
+	res.send(await login(req.body))
+})
 
 //注册
 router.post('/reg', async function (req, res, next) {
 	res.send(await reg(req.body))
 })
+
+//获取用户
+router.get('/getUser', async function (req, res, next) {
+	res.send(await getUser())
+})
+
+//审核修改用户
+router.get('/updateUser', async function (req, res, next) {
+	res.send(await updateUser(req.query))
+})
+
+
 // //es7，登陆
 // router.post('/login', async function (req, res, next) {
 // 	let data = await login(req.body)

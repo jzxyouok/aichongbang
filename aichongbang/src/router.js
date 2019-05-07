@@ -7,12 +7,20 @@ import service from './components/service'
 import goods from './components/goods'
 import pet from './components/pet'
 import reg from './views/reg'
+import login from './views/login'
+import auditUser from './components/platform/auditUser'
+import auditShop from './components/shop/auditShop'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
+      name: 'login',
+      component: login
+    },
+    {
+      path: '/reg',
       name: 'reg',
       component: reg
     },
@@ -48,6 +56,16 @@ export default new Router({
         path: 'pet',
         name: 'pet',
         component: pet
+      },
+      {
+        path: 'auditUser',
+        name: 'auditUser',
+        component: auditUser
+      },
+      {
+        path: 'auditShop',
+        name: 'auditShop',
+        component: auditShop
       },
       ]
     },
