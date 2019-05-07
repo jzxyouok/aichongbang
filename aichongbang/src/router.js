@@ -4,7 +4,7 @@ import Info from './views/Info'
 import myShop from './components/shop/myShop'
 import shenqin from './components/shop/shenqin'
 import service from './components/service'
-import goods from './components/goods'
+import goods from './components/goods/addGoods.vue'
 import pet from './components/pet'
 Vue.use(Router)
 
