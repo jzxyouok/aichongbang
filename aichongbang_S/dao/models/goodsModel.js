@@ -16,7 +16,10 @@ const goodsSchema = new mongoose.Schema({
     goodsIntro:String,        //特色说明
     goodsPrice:Number,        //价格
     goodsImg:Array,          //图片
-    
+    userID: { //用户id
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'userModel'
+    },
 })
 
 mongoose.model('goodsModel', goodsSchema, "goods");

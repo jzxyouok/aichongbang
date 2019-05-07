@@ -42,14 +42,42 @@
           </el-submenu>
         </el-submenu>
 
-        <el-menu-item index="/info/goods">
-          <i class="el-icon-document"></i>
-          <span slot="title">商品</span>
-        </el-menu-item>
-        <el-menu-item index="/info/service">
-          <i class="el-icon-setting"></i>
-          <span slot="title">服务</span>
-        </el-menu-item>
+        <el-submenu index="/info/goods">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span slot="title">商品</span>
+          </template>
+          <el-menu-item-group>
+            <span slot="title"></span>
+            <el-menu-item index="/info/shenqin">新增商品</el-menu-item>
+            <el-menu-item index="/info/show">查看商品</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+
+        <el-submenu index="/info/pet">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span slot="title">宠物</span>
+          </template>
+          <el-menu-item-group>
+            <span slot="title"></span>
+            <el-menu-item index="/info/shenqin">新增宠物</el-menu-item>
+            <el-menu-item index="/info/show">查看宠物</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+
+        <el-submenu index="/info/service">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span slot="title">服务</span>
+          </template>
+          <el-menu-item-group>
+            <span slot="title"></span>
+            <el-menu-item index="/info/shenqin">新增服务</el-menu-item>
+            <el-menu-item index="/info/show">查看服务</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+
         <el-menu-item index="5">
           <i class="el-icon-setting"></i>
           <span slot="title">订单</span>
@@ -132,27 +160,24 @@ export default {
   name: "info",
   data() {
     return {
-      isCollapse: false,
+      isCollapse: false
     };
   },
   methods: {
-
     toggleClick() {
       this.isCollapse = !this.isCollapse;
-      console.log(123);
-      
     }
   }
 };
 </script>
 
 <style>
-  .ewq{
-    margin-left: 210px;
-  }
-  .qwe{
-    margin-left: 65px
-  }
+.ewq {
+  margin-left: 210px;
+}
+.qwe {
+  margin-left: 65px;
+}
 .app-wrapper {
   position: relative;
   width: 100%;
@@ -161,7 +186,6 @@ export default {
 .el-menu-vertical-demo {
   height: 100%;
   transition: all 8s;
-
 }
 .aside-wrapper {
   transition: all 4s;
@@ -242,7 +266,7 @@ export default {
   line-height: 50px;
   margin-left: 8px;
 }
-.el-breadcrumb__item{
+.el-breadcrumb__item {
   line-height: 3.6;
 }
 </style>

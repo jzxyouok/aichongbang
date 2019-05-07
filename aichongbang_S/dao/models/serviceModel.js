@@ -9,6 +9,10 @@ const serviceSchema = new mongoose.Schema({
     serviceTime: String,    //耗时
     serviceLevel: Number,    //等级
     servicePrice: Number,     //价格
+    userID: { //用户id
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'userModel'
+    },
 })
 
 mongoose.model('serviceModel', serviceSchema, "service");

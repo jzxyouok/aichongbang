@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     },
     userStatus: {   //门店管理员状态 默认为1可用，
         type: Number,
-        default: 1   //申请0  可用1  不可用2
+        default: 0   //申请0  可用1  不可用2
     },
    
 })
