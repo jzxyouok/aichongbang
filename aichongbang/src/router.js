@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Info from './views/Info'
 import myShop from './components/shop/myShop'
 import shenqin from './components/shop/shenqin'
-import service from './components/service'
+import addService from './components/serve/addService.vue'
+import showService from './components/serve/showService.vue'
 import goods from './components/goods'
 import pet from './components/pet'
 Vue.use(Router)
@@ -34,9 +35,14 @@ export default new Router({
         component: shenqin
       },
       {
-        path: 'service',
-        name: 'service',
-        component: service
+        path: 'addservice',
+        name: 'addService',
+        component: addService
+      },
+      {
+        path: 'showservice',
+        name: 'showService',
+        component: showService
       },
       {
         path: 'goods',
