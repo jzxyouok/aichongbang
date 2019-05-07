@@ -99,7 +99,8 @@
           shopCorporate: this.form.shopCorporate,   //法人
           shopTel: 0,    //座机
           shopFeature: this.form.shopFeature,
-          shopImg:this.form.shopImg
+          shopImg:this.form.shopImg,
+          userID:document.cookie.slice(7)
         }
         fetchPost('/shop/uploadShop', data)
         }, 600);
