@@ -10,3 +10,4 @@ export const fetchPost = async (url, data) => {
         console.log(res);
     })
 }
+   

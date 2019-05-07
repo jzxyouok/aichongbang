@@ -3,11 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var serviceRouter = require('./routes/serve');
 var shopRouter = require('./routes/shop');
-
 
 require('./dao/database');//引入数据库
 
@@ -27,7 +27,6 @@ app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/service', serviceRouter);
 app.use('/shop', shopRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

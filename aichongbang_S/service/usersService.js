@@ -1,33 +1,21 @@
-const { reg,login,blogin, register, getUsers, deletes, addFrontUser, updates, userupdates, getUserById, phoneIsExist } = require('../dao/usersDao.js');
-
-//后台登陆
-module.exports.login = async function (info) {
-   let data = await login(info)
-   if (data.length > 0 && data[0].status == 1) {
-      return data;
-   } else {
-      return false;
-   }
+const { reg, getUser, updateUser, login } = require('../dao/usersDao.js');
+//登录
+module.exports.login = async function (data) {
+   return await login(data)
 }
+
 
 //注册
 module.exports.reg = async function (data) {
    return await reg(data)
 }
 
-
-// 判断手机号是否存在
-module.exports.phoneIsExist = async function (info) {
-   let data = await phoneIsExist(info)
-   if (data.length > 0) {
-      return false
-   } else {
-      return true
-   }
+//获取用户
+module.exports.getUser = async function () {
+   return await getUser()
 }
 
-//修改用户信息
-module.exports.userupdates = async function (user) {
-   return await userupdates(user)
-}
 
+module.exports.updateUser = async function (id) {
+   return await updateUser(id)
+}

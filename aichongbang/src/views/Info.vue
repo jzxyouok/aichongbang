@@ -16,7 +16,7 @@
           </template>
           <el-menu-item-group>
             <span slot="title">审核管理</span>
-            <el-menu-item index="1-1">处理申请</el-menu-item>
+            <el-menu-item index="/info/auditShop">处理申请</el-menu-item>
             <el-menu-item index="1-2">处理修改</el-menu-item>
           </el-menu-item-group>
           <el-submenu index="1-4">
@@ -31,7 +31,7 @@
           </template>
           <el-menu-item-group>
             <span slot="title">审核用户</span>
-            <el-menu-item index="2-1">处理申请</el-menu-item>
+            <el-menu-item index="/info/auditUser">处理申请</el-menu-item>
           </el-menu-item-group>
           <el-submenu index="2-1">
             <span slot="title">基础操作</span>
