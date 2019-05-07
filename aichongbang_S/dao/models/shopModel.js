@@ -15,6 +15,10 @@ const shopSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userModel'
     },
+    shopStatus: {
+        type: Number,
+        default: 0
+    }
 })
 
 mongoose.model('shopModel', shopSchema, "shop");

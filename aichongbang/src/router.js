@@ -2,21 +2,30 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Info from './views/Info'
 import myShop from './components/shop/myShop'
-// import shenqin from './components/shop/shenqin'
+import shenqin from './components/shop/shenqin'
 import service from './components/service'
 import goods from './components/goods'
 import pet from './components/pet'
 import addpet from './components/petShop/addpet.vue'
 import querythePet from './components/petShop/querythePet.vue'
+import reg from './views/reg'
+import login from './views/login'
+import auditUser from './components/platform/auditUser'
+import auditShop from './components/shop/auditShop'
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'home',
-    //   component: Home
-    // },
+    {
+      path: '/',
+      name: 'login',
+      component: login
+    },
+    {
+      path: '/reg',
+      name: 'reg',
+      component: reg
+    },
     {
       path: '/info',
       name: 'Info',
@@ -42,6 +51,11 @@ export default new Router({
         component: goods
       },
       {
+        path: 'shenqin',
+        name: 'shenqin',
+        component: shenqin
+      },
+      {
         path: 'pet',
         name: 'pet',
         component: pet
@@ -55,7 +69,16 @@ export default new Router({
         path:"querythePet",
         name:"querythePet",
         component:querythePet
-      }
+      },{
+        path: 'auditUser',
+        name: 'auditUser',
+        component: auditUser
+      },
+      {
+        path: 'auditShop',
+        name: 'auditShop',
+        component: auditShop
+      },
       ]
     },
     // {
