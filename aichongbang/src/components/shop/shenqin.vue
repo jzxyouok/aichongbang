@@ -25,14 +25,8 @@
           <el-input v-model="form.shopTel"></el-input>
         </el-form-item>
         <el-form-item style="display: flex;align-items: center" label="头像">
-            <el-upload
-            ref="upload"
-            class="upload-demo"
-            action="/shop/uploadShopImg"
-            :on-success='handleAvatarSuccess'
-            
-            :auto-upload='false'
-           >
+          <el-upload ref="upload" class="upload-demo" action="/shop/uploadShopImg" :on-success='handleAvatarSuccess'
+            :auto-upload='false'>
             <el-button size="small" type="primary">点击上传</el-button>
           </el-upload>
         </el-form-item>
@@ -45,8 +39,18 @@
             <el-option label="10%" value="10%"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="店员属性">
-          <el-input ></el-input>
+        <el-form-item style="display: flex;align-items: center" label="店员属性">
+          <el-card class="">
+            <el-form-item label="店员姓名">
+              <el-input v-model="form.shopName"></el-input>
+            </el-form-item>
+            <el-form-item label="店员等级">
+              <el-input v-model="form.shopName"></el-input>
+            </el-form-item>
+            <el-form-item label="店员电话">
+              <el-input v-model="form.shopName"></el-input>
+            </el-form-item>
+          </el-card>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit">立即创建</el-button>
@@ -74,41 +78,45 @@
           shopTel: 0,    //座机
           shopFeature: '',   //特色
           shopEmployee: [],    //店员属性
-          shopImg:''
+          shopImg: ''
         },
         dialogVisible: false,
       };
     },
     methods: {
       handleAvatarSuccess(res, file) {
-        const {url}=res.data
-        this.form.shopImg=url
+        const { url } = res.data
+        this.form.shopImg = url
       },
       onSubmit() {
         this.$refs.upload.submit()
-        var data={}
+        var data = {}
         setTimeout(() => {
           console.log(this.form.shopImg)
-         data={
-          useMoney: this.form.useMoney,
-          shopName: this.form.shopName,
-          shopLicenceNum: this.form.shopLicenceNum,
-          shopLicenceImg: this.form.shopLicenceImg,   //营业招片
-          shopAdd: this.form.shopAdd,      //地址
-          shopLocation: this.form.shopLocation,    //定位
-          shopCorporate: this.form.shopCorporate,   //法人
-          shopTel: 0,    //座机
-          shopFeature: this.form.shopFeature,
-          shopImg:this.form.shopImg
-        }
-        fetchPost('/shop/uploadShop', data)
+          data = {
+            useMoney: this.form.useMoney,
+            shopName: this.form.shopName,
+            shopLicenceNum: this.form.shopLicenceNum,
+            shopLicenceImg: this.form.shopLicenceImg,   //营业招片
+            shopAdd: this.form.shopAdd,      //地址
+            shopLocation: this.form.shopLocation,    //定位
+            shopCorporate: this.form.shopCorporate,   //法人
+            shopTel: 0,    //座机
+            shopFeature: this.form.shopFeature,
+            shopImg: this.form.shopImg
+          }
+          fetchPost('/shop/uploadShop', data)
         }, 600);
-      }, 
+      },
     },
   };
 </script>
 
 <style scoped>
+  .el-form-item__content {
+    margin-left: 0px !important
+  }
+
   .avatar-uploader el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
