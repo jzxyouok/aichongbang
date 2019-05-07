@@ -6,7 +6,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+<<<<<<< HEAD
 var goodsRouter = require('./routes/goods');
+=======
+var shopRouter = require('./routes/shop');
+>>>>>>> 41479adff9149ada424c96b20c568b2fe8964ab0
 
 require('./dao/database');//引入数据库
 
@@ -23,8 +27,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+<<<<<<< HEAD
 app.use('/users', usersRouter);
 app.use('/goods', goodsRouter);
+=======
+app.use('/user', usersRouter);
+app.use('/shop', shopRouter);
+>>>>>>> 41479adff9149ada424c96b20c568b2fe8964ab0
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
