@@ -1,5 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> e55aa93d0f3b3e562e6ded65377d16b8b7a1a88b
 <template>
   <div>
     <el-card class="box-card name" style="width:500px">
@@ -138,4 +141,7 @@
     display: block;
   }
 </style>
+<<<<<<< HEAD
 >>>>>>> 41479adff9149ada424c96b20c568b2fe8964ab0
+=======
+>>>>>>> e55aa93d0f3b3e562e6ded65377d16b8b7a1a88b

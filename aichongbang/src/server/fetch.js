@@ -6,5 +6,8 @@ export const fetchPost = async (url, data) => {
         },
         body: JSON.stringify(data),
         credentials: 'include'
-    }).then(response => response.json())
+    }).then(response => response.json()).then(res => {
+        console.log(res);
+    })
 }
+   
