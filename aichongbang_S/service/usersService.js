@@ -11,8 +11,8 @@ module.exports.reg = async function (data) {
 }
 
 //获取用户
-module.exports.getUser = async function () {
-   return await getUser()
+module.exports.getUser = async function (data) {
+   return await getUser(data)
 }
 
 

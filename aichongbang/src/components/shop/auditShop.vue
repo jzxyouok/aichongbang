@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table :data="shops"  border style="width: 100%">
+    <el-table :data="shops" border style="width: 100%">
       <el-table-column prop="shopName" label="名称"></el-table-column>
 
       <el-table-column prop="shopAdd" label="地址"></el-table-column>
@@ -51,7 +51,7 @@ export default {
     }
   },
   mounted() {
-    this.getShopByPageAsync();
+    this.getShopByPageAsync(document.cookie.slice(7));
   },
   computed: {
     //因为计算属性，默认只有get方法，所以我们给eachPage,currentPage属性单独设置set用以实现数据双向绑定
@@ -77,8 +77,8 @@ export default {
     },
     handleDelete(index, row) {
       console.log(this, row);
-      if(this.auditPass({ _id: row._id })){
-        alert('成功')
+      if (this.auditPass({ _id: row._id })) {
+        alert("成功");
       }
     }
   }
