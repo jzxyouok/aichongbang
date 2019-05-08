@@ -1,5 +1,9 @@
-const { uploadGoods } = require('../dao/goodsDao.js');
+const { uploadGood } = require('../dao/goodsDao.js');
 
-module.exports.uploadGoods = async function (id) {
-    return await uploadGoods(id)
+module.exports.uploadGood = async function (data) {
+    return await uploadGood(data)
+ }
+ 
+ module.exports.goodsList=async function(id){
+     return await goodsList(id)
  }
