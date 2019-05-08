@@ -4,8 +4,7 @@ var router = express.Router();
 let { addService } = require('./../service/serveService.js')
 
 //增加服务类型
-router.post('/service/addService', async function (req, res, next) {
-    console.log(123)
+router.post('/addService', async function (req, res, next) {
 	res.send(await addService(req.body))
 })
 

@@ -9,60 +9,34 @@
         background-color="#565656"
         text-color="#ddd"
       >
-        <el-submenu index="/info/goods">
+        <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
-            <span slot="title">商品</span>
+            <span slot="title">门店管理</span>
           </template>
           <el-menu-item-group>
-            <span slot="title"></span>
-            <el-menu-item index="/info/addGoods">新增商品</el-menu-item>
-            <el-menu-item index="/info/showGoods">查看商品</el-menu-item>
+            <span slot="title">审核管理</span>
+            <el-menu-item index="/infoP/auditShop">处理申请</el-menu-item>
           </el-menu-item-group>
-        </el-submenu>
-
-        <el-submenu index="/info/pet">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">宠物</span>
-          </template>
-          <el-menu-item-group>
-            <span slot="title"></span>
-            <el-menu-item index="/info/addpet">新增宠物</el-menu-item>
-            <el-menu-item index="/info/querythePet">查看宠物</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-
-        <el-submenu index="/info/service">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">服务</span>
-          </template>
-          <el-menu-item-group>
-            <span slot="title"></span>
-            <el-menu-item index="/info/addService">新增服务</el-menu-item>
-            <el-menu-item index="/info/showService">查看服务</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-
-        <el-menu-item index="5">
-          <i class="el-icon-setting"></i>
-          <span slot="title">订单</span>
-        </el-menu-item>
-
-        <el-submenu index="6">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">门店</span>
-          </template>
-          <el-menu-item-group>
-            <span slot="title"></span>
-            <el-menu-item index="/info/shenqin">申请门店</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="6-2">
-            <span slot="title">我的门店</span>
-            <el-menu-item index="/info/myshop">查看门店</el-menu-item>
+          <el-submenu index="1-4">
+            <span slot="title">门店查询</span>
+            <el-menu-item index="/infoP/shopMan">查看门店</el-menu-item>
           </el-submenu>
+        </el-submenu>
+        <el-submenu index="2">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span slot="title">平台管理</span>
+          </template>
+          <el-menu-item-group>
+            <span slot="title">审核用户</span>
+            <el-menu-item index="/infoP/auditUser">处理申请</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group>
+            <span slot="title">用户管理</span>
+            <el-menu-item index="/infoP/addUser">新增用户</el-menu-item>
+            <el-menu-item index="/infoP/showUser">查看用户</el-menu-item>
+          </el-menu-item-group>
         </el-submenu>
       </el-menu>
     </el-aside>
@@ -86,7 +60,7 @@
             </svg>
           </div>
           <el-breadcrumb separator="/" class="breadcrumb-container app-breadcrumb">
-            <el-breadcrumb-item :to="{ path: '/info' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/infoP' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>
               <a href="/">活动管理</a>
             </el-breadcrumb-item>
@@ -123,7 +97,7 @@
 
 <script>
 export default {
-  name: "info",
+  name: "infoP",
   data() {
     return {
       isCollapse: false

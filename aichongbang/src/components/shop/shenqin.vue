@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <el-card class="box-card name" style="width:500px">
@@ -25,11 +26,7 @@
           <el-input v-model="form.shopTel"></el-input>
         </el-form-item>
         <el-form-item style="display: flex;align-items: center" label="头像">
-          <el-upload 
-            ref="upload" 
-            class="upload-demo"
-            action="/shop/uploadShopImg"  
-            :on-success='handleAvatarSuccess'
+          <el-upload ref="upload" class="upload-demo" action="/shop/uploadShopImg" :on-success='handleAvatarSuccess'
             :auto-upload='false'>
             <el-button size="small" type="primary">点击上传</el-button>
           </el-upload>
@@ -70,7 +67,6 @@
         shopCorporate: [{ required: true, message: "请输入法人代表", trigger: "blur" }],
         shopTel: [{ required: true, message: "请输入电话", trigger: "blur" }],
       },
-
         form: {
           useMoney: "",
           shopName: '',
@@ -85,9 +81,6 @@
         },
         dialogVisible: false,
         value1:null,
-        empName:'',
-        empLevel:'',
-        empPhone:''
       };
     },
     methods: {
@@ -125,7 +118,6 @@
         });
           return false;
       }
-
       });
       },
     },
