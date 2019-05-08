@@ -25,7 +25,11 @@
           <el-input v-model="form.shopTel"></el-input>
         </el-form-item>
         <el-form-item style="display: flex;align-items: center" label="头像">
-          <el-upload ref="upload" class="upload-demo" action="/shop/uploadShopImg" :on-success='handleAvatarSuccess'
+          <el-upload 
+            ref="upload" 
+            class="upload-demo"
+            action="/shop/uploadShopImg"  
+            :on-success='handleAvatarSuccess'
             :auto-upload='false'>
             <el-button size="small" type="primary">点击上传</el-button>
           </el-upload>
@@ -38,26 +42,6 @@
             <el-option label="5%" value="5%"></el-option>
             <el-option label="10%" value="10%"></el-option>
           </el-select>
-        </el-form-item>
-        <el-form-item  label="店员属性">
-          <el-card class="waiter" style="margin-bottom: 10px">
-            <el-form-item label="店员姓名">
-              <el-input v-model="empName"></el-input>
-            </el-form-item>
-            <el-form-item label="店员等级" style="margin-top: 10px;margin-bottom: 10px">
-                <el-select v-model="value1" clearable @change='getSelectVal' placeholder="请选择">
-                    <el-option
-                      v-for="item in options"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select> 
-            </el-form-item>
-            <el-form-item label="店员电话">
-              <el-input v-model="empPhone"></el-input>
-            </el-form-item>
-          </el-card>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit(form)">立即申请</el-button>
@@ -87,17 +71,6 @@
         shopTel: [{ required: true, message: "请输入电话", trigger: "blur" }],
       },
 
-
-        options: [{
-          value: '选项1',
-          label: '特级'
-        }, {
-          value: '选项2',
-          label: '优秀'
-        }, {
-          value: '选项3',
-          label: '普通'
-        }],
         form: {
           useMoney: "",
           shopName: '',
@@ -108,7 +81,6 @@
           shopCorporate: '',   //法人
           shopTel: 0,    //座机
           shopFeature: '',   //特色
-          shopEmployee: [],    //店员属性
           shopImg: ''
         },
         dialogVisible: false,
@@ -123,15 +95,11 @@
         const { url } = res.data
         this.form.shopImg = url
       },
-      getSelectVal(value){
-       this.empLevel = this.options.find(item=>item.value===value).label
-      },
+     
       onSubmit(formName) {
         // console.log(this.$refs[formName])
         this.$refs['form'].validate(valid => {
           if (valid) {
-          this.form.shopEmployee.push({empName:this.empName},{empLevel:this.empLevel},{empPhone:this.empPhone})
-          console.log(this.form.shopEmployee)
         this.$refs.upload.submit()
         var data = {}
         setTimeout(() => {
@@ -146,7 +114,6 @@
             shopTel: this.form.shopTel,    //座机
             shopFeature: this.form.shopFeature,
             shopImg: this.form.shopImg,
-            shopEmployee:this.form.shopEmployee,
             userID:document.cookie.slice(7)
           }
           fetchPost('/shop/uploadShop', data)

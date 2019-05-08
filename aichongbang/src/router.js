@@ -11,6 +11,7 @@ import reg from './views/reg'
 import login from './views/login'
 import auditUser from './components/platform/auditUser'
 import auditShop from './components/shop/auditShop'
+import shopDetails from './components/shop/shopDetails'
 Vue.use(Router)
 
 export default new Router({
@@ -36,12 +37,17 @@ export default new Router({
       children: [{//配置子路由的地方
         path: 'myshop',
         name: 'myshop',
-        component: myShop
+        component: myShop,
       },
       {
         path: 'shenqin',
         name: 'shenqin',
         component: shenqin
+      },
+      {
+        path: 'shopdetails',
+        name: 'shopDetails',
+        component: shopDetails
       },
       {
         path: 'addservice',
