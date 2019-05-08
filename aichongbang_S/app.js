@@ -29,11 +29,11 @@ app.use('/service', serviceRouter);
 app.use('/shop', shopRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -43,9 +43,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000,function(){
+app.listen(3000, function () {
   console.log('端口3000已开启');
-  
+
 })
 
 // module.exports = app;

@@ -42,6 +42,7 @@
               placeholder="选择日期"
               v-model="ruleForm.date1"
               style="width: 100%;"
+               format="yyyy 年 MM 月 dd 日"
             ></el-date-picker>
           </el-form-item>
         </el-col>
@@ -70,7 +71,6 @@ export default {
       ruleForm: {
         name: "",
         class: "",
-        weight: "",
         type: "",
         time: "",
         price: "",
@@ -83,9 +83,6 @@ export default {
           { message: "仅支持中文", trigger: "blur" }
         ],
         class: [{ required: true, message: "请选择服务类型", trigger: "blur" }],
-        weight: [
-          { required: true, message: "请选择适用规格", trigger: "blur" }
-        ],
         type: [{ required: true, message: "请选择服务规格", trigger: "blur" }],
         time: [{ required: true, message: "请输入时间", trigger: "blur" }],
         price: [{ required: true, trigger: "blur" }],
@@ -113,20 +110,20 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           const data = {
-            name: this._data.ruleForm.name,
-            class: this._data.ruleForm.class,
-            weight: this._data.ruleForm.weight,
-            type: this._data.ruleForm.type,
-            time:this._data.ruleForm.time,
-            radio:this._data.radio,
-            radio1:this._data.radio1,
-            price: this._data.ruleForm.price,
-            date1: this._data.ruleForm.date1,
-            date2: this._data.ruleForm.date2
+            serviceName: this._data.ruleForm.name,  //服务名
+            serviceType: this._data.ruleForm.class,//服务类型
+            serviceCanFor: this._data.ruleForm.weight, //适用规格
+            serviceDetial: this._data.ruleForm.type, //服务规格
+            serviceTime:this._data.ruleForm.time,//耗时
+            serviceCanFor:this._data.radio,//适用规格
+            serviceLevel:this._data.radio1, //等级
+            servicePrice: ~~this._data.ruleForm.price,//价格
+            serviceSchedule1: this._data.ruleForm.date1, //预约服务
+            serviceSchedule2: this._data.ruleForm.date2,//预约服务
           };
           console.log(data)
           fetchPost("/service/addService",data);
-          alert("submit!");
+          // alert("submit!");
         } else {
           console.log("error submit!!");
           return false;

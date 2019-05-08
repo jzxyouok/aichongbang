@@ -9,7 +9,7 @@ router.get('/getShop', async function (req, res, next) {
 	res.send(await getShop())
 })
 
-
+ 
 /* GET home page. */
 router.post('/uploadShopImg', async function(req, res, next) {
     // console.log(await req.body)
