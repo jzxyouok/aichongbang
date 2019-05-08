@@ -7,6 +7,7 @@ const petSchema = new mongoose.Schema({
     petColor: String,    //颜色
     petDate: String,    //生日
     petCharacter:String,   //宠物性格
+    PetPictures:String,  //宠物照片
     userID: { //用户id
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userModel'

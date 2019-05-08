@@ -2,23 +2,11 @@
   <div class="about">
     <div>
       <el-form ref="form" :model="form" label-width="80px">
-        <el-form-item label="电话号码">
-          <el-input v-model="form.name" style="width: 330px;"></el-input>
-        </el-form-item>
-        <el-form-item label="昵称">
-          <el-input v-model="form.name" style="width: 330px;"></el-input>
-        </el-form-item>
-        <el-form-item label="真实姓名">
-          <el-input v-model="form.name" style="width: 330px;"></el-input>
-        </el-form-item>
-        <el-form-item label="送货地址">
-          <el-input type="textarea" v-model="form.desc" style="width: 330px;"></el-input>
-        </el-form-item>
-        <el-form-item label="宠物品类">
-          <el-checkbox-group v-model="form.type">
-            <el-checkbox label="狗" name="type"></el-checkbox>
-            <el-checkbox label="猫" name="type"></el-checkbox>
-          </el-checkbox-group>
+        <el-form-item label="宠物性格">
+          <el-radio-group v-model="form.type">
+            <el-radio label="猫"></el-radio>
+            <el-radio label="狗"></el-radio>
+          </el-radio-group>
         </el-form-item>
         <el-form-item label="宠物性格">
           <el-radio-group v-model="form.resource">
@@ -29,15 +17,15 @@
         </el-form-item>
         <el-form-item label="宠物品种">
           <el-select v-model="form.region" placeholder="请选择活动区域" style="width: 330px;">
-            <el-option label="泰迪" value="shanghai"></el-option>
-            <el-option label="比熊" value="beijing"></el-option>
+            <el-option label="泰迪" value="泰迪"></el-option>
+            <el-option label="比熊" value="比熊"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="宠物名">
           <el-input v-model="form.name" style="width: 330px;"></el-input>
         </el-form-item>
         <el-form-item label="宠物颜色">
-          <el-input v-model="form.name" style="width: 330px;"></el-input>
+          <el-input v-model="form.color" style="width: 330px;"></el-input>
         </el-form-item>
         <el-form-item label="出生日期">
           <el-col :span="11">
@@ -57,17 +45,16 @@
     </div>
 
     <div>
-      <h1>宠主头像：</h1>
+      <h1>宠物照片：</h1>
       <el-upload
         class="avatar-uploader"
-        action="123"
+        action="/pet/addImage"
         :show-file-list="false"
         :on-success="handleAvatarSuccess"
         :on-change="onchange"
         :before-upload="beforeAvatarUpload"
-        style="border: 1px solid #8c939d;margin-top: 20px;"
-      >
-        <img v-if="imageUrl" :src="imageUrl" class="avatar">
+        style="border: 1px dashed #8c939d;margin-top: 20px;">
+        <img v-if="imageUrl" :src="imageUrl" class="avatar" >
         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
       </el-upload>
     </div>
@@ -75,6 +62,7 @@
 </template>
 
 <script>
+import {fetchPost} from '../../server/fetch.js'
 export default {
   data() {
     return {
@@ -84,10 +72,9 @@ export default {
         date1: "",
         date2: "",
         delivery: false,
-        type: [],
+        type: '',
         resource: "",
         desc: "",
-       
       },
        imageUrl: ""
     };
@@ -95,6 +82,15 @@ export default {
   methods: {
     onSubmit() {
       console.log("submit!");
+      let data={
+        petName:this.form.name,//宠物名
+        petColor:this.form.color,//宠物颜色
+        petType:this.form.type,//宠物品类
+        petKind:this.form.region,//宠物种类
+        petDate:this.form.date1,//宠物生日
+        petCharacter:this.form.resource,//宠物性格
+      }
+      fetchPost('/pet/addpet',data)
     },
     handleAvatarSuccess(res, file) {
       // console.log(res.body);
@@ -154,7 +150,7 @@ export default {
 }
 .avatar {
   width: 178px;
-  height: 178px;
+  height: 170px;
   display: block;
 }
 </style>
