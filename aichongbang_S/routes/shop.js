@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
-let { getShop, uploadShop, auditShop } = require('../service/shopService.js')
+let { getShop, uploadShop, auditShop,getShopByUserId ,getShopByPage} = require('../service/shopService.js')
 const { uploadFile } = require("../public/javascripts/upload");
 
 
 //获取门店
 router.post('/getShop', async function (req, res, next) {
     res.send(await getShop(req.body))
+})
+router.post('/getShopByuserId', async function (req, res, next) {
+    res.send(await getShopByUserId(req.body))
 })
 
  

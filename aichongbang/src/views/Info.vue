@@ -16,13 +16,8 @@
           </template>
           <el-menu-item-group>
             <span slot="title"></span>
-<<<<<<< HEAD
             <el-menu-item index="/info/addGoods">新增商品</el-menu-item>
             <el-menu-item index="/info/showGoods">查看商品</el-menu-item>
-=======
-            <el-menu-item index="/info/goods">新增商品</el-menu-item>
-            <el-menu-item index="/info/show">查看商品</el-menu-item>
->>>>>>> 61fad2fd2f61ca9fbdf9088ac1d4fa886d6fea7f
           </el-menu-item-group>
         </el-submenu>
 
@@ -33,13 +28,8 @@
           </template>
           <el-menu-item-group>
             <span slot="title"></span>
-<<<<<<< HEAD
-            <el-menu-item index="/info/addPet">新增宠物</el-menu-item>
-            <el-menu-item index="/info/showPet">查看宠物</el-menu-item>
-=======
             <el-menu-item index="/info/addpet">新增宠物</el-menu-item>
             <el-menu-item index="/info/querythePet">查看宠物</el-menu-item>
->>>>>>> 61fad2fd2f61ca9fbdf9088ac1d4fa886d6fea7f
           </el-menu-item-group>
         </el-submenu>
 
