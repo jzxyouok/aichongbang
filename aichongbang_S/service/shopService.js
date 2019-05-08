@@ -1,9 +1,13 @@
-const { getShop, uploadShop, auditShop } = require('../dao/shopDao.js');
+const { getShop, uploadShop, auditShop,getShopByUserId,getShopByPage } = require('../dao/shopDao.js');
 
 //获取
 module.exports.getShop = async function (data) {
     return await getShop(data)
 }
+module.exports.getShopByUserId = async function (data) {
+    return await getShopByUserId(data)
+}
+
 
 module.exports.uploadShop = async (shop) => {
     return await uploadShop(shop);

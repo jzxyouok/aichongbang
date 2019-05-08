@@ -100,7 +100,10 @@ export default {
             userMail: this.ruleForm.email,
             userName: this.ruleForm.name
           };
-          fetchPost("/user/reg", data);
+          fetchPost("/user/reg", data).then(res => {
+            console.log(res);
+            this.$router.push(`/login/${res.userAcount}`);
+          });
         } else {
           console.log("error submit!!");
           return false;

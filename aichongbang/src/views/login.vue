@@ -29,15 +29,35 @@ export default {
   },
   methods: {
     Login() {
-      let obj = { userAcount: this.userAcount, userPwd: this.userPwd };
-      fetchPost("/user/login", obj).then(res => {
-        console.log(res);
-        document.cookie = `userID=${res[0]._id}`;
-        this.$router.push("/info");
-      });
+      this.$router.push("/info");
     },
     Reg() {
       this.$router.push("/reg");
+    }
+  },
+  beforeRouteLeave(to, from, next) {
+    let obj = { userAcount: this.userAcount, userPwd: this.userPwd };
+    if ((to.name == "Info")) {
+      fetchPost("/user/login", obj).then(res => {
+        if (res.length > 0) {
+          if (res[0].userType == 0) {
+            document.cookie = `userID=${res[0]._id}`;
+            next("/infoP");
+          } else {
+            if (res[0].userStatus == 1) {
+              document.cookie = `userID=${res[0]._id}`;
+              next();
+            } else {
+              this.$message.error("错了哦，这是一条错误消息");
+              next("/reg");
+            }
+          }
+        } else {
+          this.$message.error("请进行正规操作");
+        }
+      });
+    } else {
+      next();
     }
   }
 };

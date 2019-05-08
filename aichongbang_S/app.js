@@ -12,6 +12,7 @@ var goodsRouter = require('./routes/goods');
 var serviceRouter = require('./routes/serve');
 
 var shopRouter = require('./routes/shop');
+var petRouter = require('./routes/QueryThePet-routes');
 
 
 require('./dao/database');//引入数据库
@@ -33,6 +34,8 @@ app.use('/user', usersRouter);
 app.use('/goods', goodsRouter);
 app.use('/service', serviceRouter);
 app.use('/shop', shopRouter);
+app.use('/pet', petRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
