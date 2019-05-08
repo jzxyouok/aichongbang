@@ -3,12 +3,10 @@ import Router from 'vue-router'
 import Info from './views/Info'
 import myShop from './components/shop/myShop'
 import shenqin from './components/shop/shenqin'
-// import service from './components/servic'
 import addGoods from './components/goods/addGoods.vue'
 import goodsList from './components/goods/goodsList.vue'
 import addService from './components/serve/addService.vue'
 import showService from './components/serve/showService.vue'
-// import goods from './components/goods/addGoods.vue'
 import pet from './components/pet'
 import addpet from './components/petShop/addpet.vue'
 import querythePet from './components/petShop/querythePet.vue'
@@ -142,11 +140,6 @@ export default new Router({
         path: 'showservice',
         name: 'PshowService',
         component: showService
-      },
-      {
-        path: 'goods',
-        name: 'Pgoods',
-        component: goods
       },
       {
         path: 'pet',
