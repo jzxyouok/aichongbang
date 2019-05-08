@@ -6,8 +6,13 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+var goodsRouter = require('./routes/goods');
+
 var serviceRouter = require('./routes/serve');
+
 var shopRouter = require('./routes/shop');
+
 
 require('./dao/database');//引入数据库
 
@@ -24,7 +29,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/user', usersRouter);
+app.use('/users', usersRouter);
+app.use('/goods', goodsRouter);
 app.use('/service', serviceRouter);
 app.use('/shop', shopRouter);
 
