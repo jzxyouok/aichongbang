@@ -146,7 +146,8 @@
             shopTel: this.form.shopTel,    //座机
             shopFeature: this.form.shopFeature,
             shopImg: this.form.shopImg,
-            shopEmployee:this.form.shopEmployee
+            shopEmployee:this.form.shopEmployee,
+            userID:document.cookie.slice(7)
           }
           fetchPost('/shop/uploadShop', data)
         }, 600);
