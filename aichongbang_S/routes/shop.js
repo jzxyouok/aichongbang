@@ -9,6 +9,7 @@ router.post('/getShop', async function (req, res, next) {
     res.send(await getShop(req.body))
 })
 
+ 
 //审核修改门店
 router.post('/auditShop', async function (req, res, next) {
     res.send(await auditShop(req.body))

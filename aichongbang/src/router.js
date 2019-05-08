@@ -3,10 +3,14 @@ import Router from 'vue-router'
 import Info from './views/Info'
 import myShop from './components/shop/myShop'
 import shenqin from './components/shop/shenqin'
+import service from './components/service'
+import goods from './components/goods/addGoods.vue'
 import addService from './components/serve/addService.vue'
 import showService from './components/serve/showService.vue'
 import goods from './components/goods'
 import pet from './components/pet'
+import addpet from './components/petShop/addpet.vue'
+import querythePet from './components/petShop/querythePet.vue'
 import reg from './views/reg'
 import login from './views/login'
 import auditUser from './components/platform/auditUser'
@@ -46,11 +50,7 @@ export default new Router({
         name: 'myshop',
         component: myShop
       },
-      {
-        path: 'shenqin',
-        name: 'shenqin',
-        component: shenqin
-      },
+     
       {
         path: 'addservice',
         name: 'addService',
@@ -67,11 +67,25 @@ export default new Router({
         component: goods
       },
       {
+        path: 'shenqin',
+        name: 'shenqin',
+        component: shenqin
+      },
+      {
         path: 'pet',
         name: 'pet',
         component: pet
       },
       {
+        path:"addpet",
+        name:"addpet",
+        component:addpet
+      },
+      {
+        path:"querythePet",
+        name:"querythePet",
+        component:querythePet
+      },{
         path: 'auditUser',
         name: 'auditUser',
         component: auditUser
