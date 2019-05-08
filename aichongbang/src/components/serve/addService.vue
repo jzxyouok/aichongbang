@@ -10,8 +10,8 @@
       label-width="100px"
       class="demo-ruleForm"
     >
-      <el-form-item label="名称" prop="name">
-        <el-input v-model="ruleForm.name"></el-input>
+      <el-form-item label="名称" >
+        <el-input v-model="ruleForm.name" prop="name"></el-input>
       </el-form-item>
       <el-form-item label="品类" prop="class">
         <el-input v-model="ruleForm.class"></el-input>
