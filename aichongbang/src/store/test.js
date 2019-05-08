@@ -21,9 +21,9 @@ export default {
 
   },
   actions: {
-    async getShopByPageAsync(context) {
+    async getShopByPageAsync(context, id) {
       const { currentPage, eachPage, count } = context.state
-      var data = await fetchPost('/shop/getShop', { currentPage, eachPage }).then(res => res)
+      var data = await fetchPost('/shop/getShop', { currentPage, eachPage, shopStatus: 0 }).then(res => res)
       context.commit('getShopByPage', data)//将获取到的数据利用mutations更新到state中。
       console.log(data);
     },
@@ -31,7 +31,7 @@ export default {
       const { currentPage, eachPage, count } = context.state
       var data = await fetchPost('/shop/auditShop', id).then(res => res)
       if (data.ok == 1) {
-        var data = await fetchPost('/shop/getShop', { currentPage, eachPage }).then(res => res)
+        var data = await fetchPost('/shop/getShop', { currentPage, eachPage, shopStatus: 0 }).then(res => res)
         context.commit('getShopByPage', data)//将获取到的数据利用mutations更新到state中。
         return true;
       }

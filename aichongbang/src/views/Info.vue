@@ -9,39 +9,6 @@
         background-color="#565656"
         text-color="#ddd"
       >
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">门店管理</span>
-          </template>
-          <el-menu-item-group>
-            <span slot="title">审核管理</span>
-            <el-menu-item index="/info/auditShop">处理申请</el-menu-item>
-            <el-menu-item index="1-2">处理修改</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="1-4">
-            <span slot="title">门店查询</span>
-            <el-menu-item index="1-4-1">1</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-submenu index="2">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">平台管理</span>
-          </template>
-          <el-menu-item-group>
-            <span slot="title">审核用户</span>
-            <el-menu-item index="/info/auditUser">处理申请</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="2-1">
-            <span slot="title">基础操作</span>
-            <el-menu-item index="2-1-1">增加用户</el-menu-item>
-            <el-menu-item index="2-1-1">修改用户</el-menu-item>
-            <el-menu-item index="2-1-1">删除用户</el-menu-item>
-            <el-menu-item index="2-1-1">查看用户</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-
         <el-submenu index="/info/goods">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -49,8 +16,13 @@
           </template>
           <el-menu-item-group>
             <span slot="title"></span>
+<<<<<<< HEAD
             <el-menu-item index="/info/addGoods">新增商品</el-menu-item>
-            <el-menu-item index="/info/goodsList">查看商品</el-menu-item>
+            <el-menu-item index="/info/showGoods">查看商品</el-menu-item>
+=======
+            <el-menu-item index="/info/goods">新增商品</el-menu-item>
+            <el-menu-item index="/info/show">查看商品</el-menu-item>
+>>>>>>> 61fad2fd2f61ca9fbdf9088ac1d4fa886d6fea7f
           </el-menu-item-group>
         </el-submenu>
 
@@ -61,8 +33,13 @@
           </template>
           <el-menu-item-group>
             <span slot="title"></span>
-            <el-menu-item index="/info/shenqin">新增宠物</el-menu-item>
-            <el-menu-item index="/info/show">查看宠物</el-menu-item>
+<<<<<<< HEAD
+            <el-menu-item index="/info/addPet">新增宠物</el-menu-item>
+            <el-menu-item index="/info/showPet">查看宠物</el-menu-item>
+=======
+            <el-menu-item index="/info/addpet">新增宠物</el-menu-item>
+            <el-menu-item index="/info/querythePet">查看宠物</el-menu-item>
+>>>>>>> 61fad2fd2f61ca9fbdf9088ac1d4fa886d6fea7f
           </el-menu-item-group>
         </el-submenu>
 
@@ -135,13 +112,12 @@
                 >
               </div>
               <el-dropdown-menu slot="dropdown" class="user-dropdown">
-                <router-link to="/">
-                  <el-dropdown-item>Home</el-dropdown-item>
-                </router-link>
-
-                <el-dropdown-item divided>
-                  <span style="display:block;">Log Out</span>
-                </el-dropdown-item>
+                <router-link to="/reg">
+                  <el-dropdown-item divided>注册</el-dropdown-item>
+                </router-link>  
+                  <router-link to="/login">
+                    <el-dropdown-item>退出</el-dropdown-item>
+                  </router-link>
               </el-dropdown-menu>
             </el-dropdown>
           </div>

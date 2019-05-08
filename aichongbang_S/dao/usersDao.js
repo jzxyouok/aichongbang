@@ -12,29 +12,22 @@ module.exports.reg = async function (data) {
 }
 
 //获取用户
-module.exports.getUser = async function () {
-   let result = await userModel.find()
-   console.log(result);
-   return result.filter(item => item.userStatus == 0)
-}
-
-//修改用户
-module.exports.updateUser = async function (id) {
-   return await userModel.updateOne(id, { userStatus: 1 });
-}
-
-
-//*************************************************** */
-//获取后台用户
-module.exports.getUsers = async function ({ currentPage, eachPage }) {
-   let result = await userModel.find();
-
-   let count = await userModel.countDocuments();  // 总条数
-   let totalPage = Math.ceil(count / eachPage); // 总页数
-   let users = await userModel
-      .find()
-      .skip((currentPage - 1) * eachPage)
-      .limit(eachPage - 0)
+module.exports.getUser = async function ({ currentPage, eachPage, userStatus }) {
+   let count, users
+   if (userStatus === undefined) {
+      count = await userModel.find().countDocuments();  // 总条数
+      users = await userModel
+         .find()
+         .skip((currentPage - 1) * eachPage)
+         .limit(eachPage - 0)
+   } else {
+      count = await userModel.find({ userStatus }).countDocuments();  // 总条数
+      users = await userModel
+         .find({ userStatus })
+         .skip((currentPage - 1) * eachPage)
+         .limit(eachPage - 0)
+   }
+   totalPage = Math.ceil(count / eachPage); // 总页数
    let pageData = {
       currentPage: currentPage - 0,  // 当前页码
       eachPage: eachPage - 0,  // 每页显示条数
@@ -45,6 +38,13 @@ module.exports.getUsers = async function ({ currentPage, eachPage }) {
 
    return pageData;
 }
+
+//修改用户
+module.exports.updateUser = async function (id) {
+   return await userModel.updateOne(id, { userStatus: 1 });
+}
+
+
 //批量删除后台用户
 module.exports.deletes = async function (id) {
    return await userModel.remove({ _id: { $in: id._id } });
@@ -58,20 +58,5 @@ module.exports.addFrontUser = async function (user) {
 
 //修改用户
 module.exports.updates = async function ({ _id, password }) {
-   return await userModel.updateOne({ _id }, { password });
-}
-//通过id获取当前登陆的用户
-module.exports.getUserById = async function (id) {
-   let result = await userModel.find(id);
-   return result;
-}
-
-// 判断手机号是否存在
-module.exports.phoneIsExist = async function (info) {
-   return await userModel.find(info);
-}
-
-//修改用户信息
-module.exports.userupdates = async function ({ _id, password }) {
    return await userModel.updateOne({ _id }, { password });
 }
