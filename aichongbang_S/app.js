@@ -6,8 +6,14 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+var goodsRouter = require('./routes/goods');
+
+var serviceRouter = require('./routes/serve');
+
 var shopRouter = require('./routes/shop');
 var petRouter = require('./routes/QueryThePet-routes');
+
 
 require('./dao/database');//引入数据库
 
@@ -24,18 +30,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/user', usersRouter);
+app.use('/users', usersRouter);
+app.use('/goods', goodsRouter);
+app.use('/service', serviceRouter);
 app.use('/shop', shopRouter);
 app.use('/pet', petRouter);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
-
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -45,9 +52,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000,function(){
+app.listen(3000, function () {
   console.log('端口3000已开启');
-  
+
 })
 
 // module.exports = app;

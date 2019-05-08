@@ -49,7 +49,7 @@
           </template>
           <el-menu-item-group>
             <span slot="title"></span>
-            <el-menu-item index="/info/shenqin">新增商品</el-menu-item>
+            <el-menu-item index="/info/goods">新增商品</el-menu-item>
             <el-menu-item index="/info/show">查看商品</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
@@ -73,8 +73,8 @@
           </template>
           <el-menu-item-group>
             <span slot="title"></span>
-            <el-menu-item index="/info/shenqin">新增服务</el-menu-item>
-            <el-menu-item index="/info/show">查看服务</el-menu-item>
+            <el-menu-item index="/info/addService">新增服务</el-menu-item>
+            <el-menu-item index="/info/showService">查看服务</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
 
