@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e55aa93d0f3b3e562e6ded65377d16b8b7a1a88b
+
 <template>
   <div>
     <el-card class="box-card name" style="width:500px">
@@ -30,14 +26,8 @@
           <el-input v-model="form.shopTel"></el-input>
         </el-form-item>
         <el-form-item style="display: flex;align-items: center" label="头像">
-            <el-upload
-            ref="upload"
-            class="upload-demo"
-            action="/shop/uploadShopImg"
-            :on-success='handleAvatarSuccess'
-            
-            :auto-upload='false'
-           >
+          <el-upload ref="upload" class="upload-demo" action="/shop/uploadShopImg" :on-success='handleAvatarSuccess'
+            :auto-upload='false'>
             <el-button size="small" type="primary">点击上传</el-button>
           </el-upload>
         </el-form-item>
@@ -50,8 +40,18 @@
             <el-option label="10%" value="10%"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="店员属性">
-          <el-input ></el-input>
+        <el-form-item style="display: flex;align-items: center" label="店员属性">
+          <el-card class="">
+            <el-form-item label="店员姓名">
+              <el-input v-model="form.shopName"></el-input>
+            </el-form-item>
+            <el-form-item label="店员等级">
+              <el-input v-model="form.shopName"></el-input>
+            </el-form-item>
+            <el-form-item label="店员电话">
+              <el-input v-model="form.shopName"></el-input>
+            </el-form-item>
+          </el-card>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit">立即创建</el-button>
@@ -79,19 +79,19 @@
           shopTel: 0,    //座机
           shopFeature: '',   //特色
           shopEmployee: [],    //店员属性
-          shopImg:''
+          shopImg: ''
         },
         dialogVisible: false,
       };
     },
     methods: {
       handleAvatarSuccess(res, file) {
-        const {url}=res.data
-        this.form.shopImg=url
+        const { url } = res.data
+        this.form.shopImg = url
       },
       onSubmit() {
         this.$refs.upload.submit()
-        var data={}
+        var data = {}
         setTimeout(() => {
           console.log(this.form.shopImg)
          data={
@@ -104,16 +104,21 @@
           shopCorporate: this.form.shopCorporate,   //法人
           shopTel: 0,    //座机
           shopFeature: this.form.shopFeature,
-          shopImg:this.form.shopImg
+          shopImg:this.form.shopImg,
+          userID:document.cookie.slice(7)
         }
         fetchPost('/shop/uploadShop', data)
         }, 600);
-      }, 
+      },
     },
   };
 </script>
 
 <style scoped>
+  .el-form-item__content {
+    margin-left: 0px !important
+  }
+
   .avatar-uploader el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
@@ -141,7 +146,3 @@
     display: block;
   }
 </style>
-<<<<<<< HEAD
->>>>>>> 41479adff9149ada424c96b20c568b2fe8964ab0
-=======
->>>>>>> e55aa93d0f3b3e562e6ded65377d16b8b7a1a88b
