@@ -3,11 +3,8 @@ import Router from 'vue-router'
 import Info from './views/Info'
 import myShop from './components/shop/myShop'
 import shenqin from './components/shop/shenqin'
-import service from './components/service'
-import goods from './components/goods/addGoods.vue'
 import addService from './components/serve/addService.vue'
 import showService from './components/serve/showService.vue'
-import goods from './components/goods'
 import pet from './components/pet'
 import reg from './views/reg'
 import login from './views/login'
@@ -55,11 +52,11 @@ export default new Router({
         name: 'showService',
         component: showService
       },
-      {
-        path: 'goods',
-        name: 'goods',
-        component: goods
-      },
+      // {
+      //   path: 'goods',
+      //   name: 'goods',
+      //   component: goods
+      // },
       {
         path: 'pet',
         name: 'pet',

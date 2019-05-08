@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const serviceSchema = new mongoose.Schema({
     serviceName: String,    //服务名
     serviceType: String,    //服务类型
-    serviceSchedule1: Date,  //预约服务(排期--年月日)
-    serviceSchedule2: Date,  //预约服务(排期时间--时分秒)
+    serviceSchedule: String,  //预约服务开始时间
     serviceCanFor: String,     //适用规格
     serviceDetial: String,   //服务规格
     serviceTime: String,    //耗时
